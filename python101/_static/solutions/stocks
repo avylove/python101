@@ -1,0 +1,25 @@
+#!/usr/bin/env python
+
+from __future__ import print_function
+
+# Stock data for September 27, 2016
+headers = ('Stock', 'High', 'Low', 'Volume')
+stocks = {'amd' : (6.58, 6.29, 29094312),
+          'goog' : (774.31, 785.99, 1022148),
+          'intc' : (36.63, 37.98, 17457582),
+          'tsls' : (204.61, 209.98, 3046909),
+          'fb' : (127.43, 129.01, 14900141),
+          'ge' : (29.47, 29.97, 24396348)}
+
+print('|'.join(['{:^10s}'] * len(headers)).format(*headers))
+print('|'.join([' -------- '] * len(headers)))
+
+for ticker in sorted(stocks):
+
+    # Standard answer
+    # print(' {:<8s} | {:>8.2f} | {:>8.2f} | {:>8d}'.format(ticker.upper(), *stocks[ticker]))
+
+    # Bonus Answer
+    volume = int(round(stocks[ticker][2] / 1000.000))
+    print(' {:<8s} | {:>8.2f} | {:>8.2f} | {:>7,d}k'.format(ticker.upper(), stocks[ticker][0],
+                                                            stocks[ticker][1], volume))

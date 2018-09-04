@@ -1,0 +1,63 @@
+#! /usr/bin/env python
+"""
+Homework - Dice
+
+Create a command that takes an integer as it's only argument.
+The command will then roll a pair of virtual dice the number of times indicated by the integer.
+"""
+
+import random
+import sys
+
+# Make sure we have an argument
+if len(sys.argv) < 2:
+    sys.exit("Usage: %s number" % sys.argv[0])
+
+# Try to convert the argument to an integer
+try:
+    rolls = int(sys.argv[1])
+except ValueError:
+    sys.stderr.write("%s is not a number\n" % sys.argv[1])
+    sys.exit("Usage: %s number" % sys.argv[0])
+
+# Make sure we have a positive number
+if rolls <= 0:
+    sys.stderr.write("How does one roll %d times?\n" % rolls)
+    sys.exit("Usage: %s number" % sys.argv[0])
+
+# Set up random number generator
+randomGen = random.SystemRandom()
+
+# Create a dictionary with keys 2 - 12 and all values are 0
+# Could also be written as dict(zip(range(2, 13), [0]*11))
+history = dict([(num, 0) for num in range(2, 13)])
+
+for rollNumber in range(1, rolls + 1):
+
+    # Roll dice
+    result = (randomGen.randint(1, 6), randomGen.randint(1, 6))
+
+    # Output (but do not complete line)
+    sys.stdout.write("Roll %d: (%d, %d)" % (rollNumber, result[0], result[1]))
+
+    # Check for special cases
+    total = sum(result)
+    if total == 2:
+        sys.stdout.write(" Snake Eyes!\n")
+    elif total == 11:
+        sys.stdout.write(" Yoleven!\n")
+    elif total == 12:
+        sys.stdout.write(" Boxcars!\n")
+    else:
+        sys.stdout.write("\n")
+
+    # Update history
+    history[total] += 1
+
+sys.stdout.write("\nDice Histogram:\n\n")
+
+# Horizontal Histogram
+for result in sorted(history):
+    sys.stdout.write("%2d %s\n" % (result,  '|' * history[result]))
+
+sys.stdout.write("\n")

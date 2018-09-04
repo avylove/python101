@@ -1,0 +1,48 @@
+Exercise: Number
+
+Write a program which has a user guess a random number between 1 and 100.
+
+Replace the comments that are in all caps with your code to make the program work.
+
+-------------------------------------------------------------------------------
+
+
+#!/usr/bin/env python
+
+from __future__ import print_function
+
+import sys
+import random
+
+if sys.version_info[0] > 2:
+    INPUT = input
+else:
+    INPUT = raw_input
+
+
+def get_guess():
+    """
+    Ask user for their guess
+    """
+
+    try:
+        guess = int(INPUT("What is your guess? "))
+    except ValueError:
+        print("Come on, integers only.")
+        return get_guess()
+    return guess
+
+# Set up random number generator
+randomGen = random.SystemRandom()
+
+# Get number between 1 and 100
+number = randomGen.randint(1, 100)
+
+# Print Instructions
+print("\nI'm thinking of a number between 1 and 100.\nTry to figure it out in five guesses.\n")
+
+# Ask the user for their guess until they get it right or run out of guesses
+# YOUR CODE HERE
+# THE NUMBER IS AVAILABLE IN THE number VARIABLE
+# USE THE get_guess() FUNCTION TO RETRIEVE THE USER'S GUESSES
+

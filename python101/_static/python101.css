@@ -1,0 +1,19 @@
+
+dt {
+    font-weight: normal;
+}
+
+strong {
+    font-weight: bold;
+    color: black;
+}
+
+article > ul > li > dl > dt {
+    font-weight: bold;
+}
+
+article > ul > li > p.first {
+    font-weight: bold;
+}
+
+

@@ -1,0 +1,54 @@
+#!/usr/bin/env python
+
+from __future__ import print_function
+
+import sys
+import random
+
+if sys.version_info[0] > 2:
+    INPUT = input
+else:
+    INPUT = raw_input
+
+
+def get_guess():
+    """
+    Ask user for their guess
+    """
+
+    try:
+        guess = int(INPUT("What is your guess? "))
+    except ValueError:
+        print("Come on, integers only.")
+        return get_guess()
+    return guess
+
+# Set up random number generator
+randomGen = random.SystemRandom()
+
+# Get number between 1 and 100
+number = randomGen.randint(1, 100)
+
+# Print Instructions
+print("\nI'm thinking of a number between 1 and 100.\nTry to figure it out in five guesses.\n")
+
+# Ask the user for their guess until they get it right or run out of guesses
+guesses = 0
+correct = False
+while guesses < 5 and not correct:
+
+    currentGuess = get_guess()
+    guesses += 1
+
+    if currentGuess == number:
+        correct = True
+    elif currentGuess < number:
+        print("Sorry, your guess is too low.")
+    else:
+        print("Sorry, your guess is too high.")
+
+# Give a parting statement
+if correct:
+    print ("\nGreat Job!")
+else:
+    print("\nBetter luck next time.")

@@ -1,0 +1,56 @@
+Exercise: Stocks
+
+Given a dictionary of stock data, print the data in this format:
+
+  Stock   |   High   |   Low    |  Volume  
+ -------- | -------- | -------- | -------- 
+ AMD      |     6.58 |     6.29 | 29094312
+ FB       |   127.43 |   129.01 | 14900141
+ GE       |    29.47 |    29.97 | 24396348
+ GOOG     |   774.31 |   785.99 |  1022148
+ INTC     |    36.63 |    37.98 | 17457582
+ TSLS     |   204.61 |   209.98 |  3046909
+
+- Headers are centered
+- Each column is 10 characters wide, but the two outside characters must be spaces
+- Tickers are in all caps and left-justified
+- Numbers are right-justified
+
+Replace the comments that are in all caps with your code to make the program work.
+
+Bonus:
+
+Display volume rounded to the nearest thousand and include thousands separator
+
+  Stock   |   High   |   Low    |  Volume  
+ -------- | -------- | -------- | -------- 
+ AMD      |     6.58 |     6.29 |  29,094k
+ FB       |   127.43 |   129.01 |  14,900k
+ GE       |    29.47 |    29.97 |  24,396k
+ GOOG     |   774.31 |   785.99 |   1,022k
+ INTC     |    36.63 |    37.98 |  17,458k
+ TSLS     |   204.61 |   209.98 |   3,047k
+
+
+-------------------------------------------------------------------------------
+
+
+#!/usr/bin/env python
+
+from __future__ import print_function
+
+# Stock data for September 27, 2016
+headers = ('Stock', 'High', 'Low', 'Volume')
+stocks = {'amd' : (6.58, 6.29, 29094312),
+          'goog' : (774.31, 785.99, 1022148),
+          'intc' : (36.63, 37.98, 17457582),
+          'tsls' : (204.61, 209.98, 3046909),
+          'fb' : (127.43, 129.01, 14900141),
+          'ge' : (29.47, 29.97, 24396348)}
+
+# PRINT HEADERS HERE
+
+for ticker in sorted(stocks):
+
+    # PRINT STOCK INFO HERE
+

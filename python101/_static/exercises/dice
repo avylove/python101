@@ -1,0 +1,33 @@
+Exercise: Dice
+
+Create a command that takes an integer as it's only argument. The command will then roll a pair of virtual dice the number of times indicated by the integer.
+
+Criteria:
+The results of each roll should be displayed
+Special messages should be displayed for special results
+1 and 1: "Snake Eyes!"
+6 and 6: "Boxcars!"
+5 and 6: "Yoleven!"
+
+Example Output:
+
+$ python dice.py 3
+Roll 1: (2, 2)
+Roll 2: (6, 6) Boxcars!
+Roll 3: (6, 2)
+
+Bonus:
+	Display a dice histogram showing the number of times a value came up
+
+ 2 |
+ 3 ||
+ 4 |||
+ 5 ||||
+ 6 |||||
+ 7 ||||||
+ 8 |||||
+ 9 ||||
+10 |||
+11 ||
+12 |
+
