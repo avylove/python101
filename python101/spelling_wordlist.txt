@@ -13,6 +13,8 @@ gedit
 iterable
 iterables
 Jython
+linter
+Linters
 lookups
 namespace
 prepend
@@ -22,6 +24,7 @@ pathname
 Psyco
 PyCharm
 Pyjamas
+reStructuredText
 returncode
 Rossum
 RPython

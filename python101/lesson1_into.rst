@@ -18,24 +18,30 @@ Why Python?
 Why Python?
 ===========
 
-* Python is consistently ranked among the top 5 programming languages
-    * Other are C, C++, C#, JavaScript, and Java
-    * Currently 3rd on GitHub behind JavaScript and Java
+* Python is consistently ranked among the top programming languages
+    * Others are C, C++, C#, JavaScript, and Java
+    * Currently `second on GitHub`_ (active projects) behind JavaScript
+        * Overtook Java in 2017
+    * Heavily used in data science and scientific computing
 * Extensive ecosystem
-    * PyPI contains over 88,000 packages (September 2016)
-* Simple (or as complicated as you need)
+    * PyPI contains over 151,000 packages (September 2018)
+* Simple
+    * Or as complicated as you need
 * Integrates with C libraries
-* Heavily used in data science and scientific computing
+    * C API, ctypes, Cython, etc
 * In demand
     * 67% increase in Python jobs on `Indeed.com <http://www.indeed.com/jobs?q=python&l=>`_ between 2012 and 2016
+
+.. _second on GitHub: https://www.benfrederickson.com/ranking-programming-languages-by-github-users/
 
 History
 =======
 
-* Created by Guido van Rossum
+* Created by `Guido van Rossum <https://en.wikipedia.org/wiki/Guido_van_Rossum>`_
     * From the Netherlands
     * At Dropbox since December 2012
     * Formally at Google, NIST, CNRI
+    * Resigned as BDFL (Benevolent Dictator For Life) in July 2018
 * Started in December 1989
     * Guido was trying to stay busy while his office was closed for Christmas
     * Named after Monty Python's Flying Circus
@@ -51,17 +57,17 @@ History
 Interpreters & Compilers
 ========================
 
-* CPython
+* `CPython <https://www.python.org/>`_
     * Most popular
     * Reference Implementation
-* PyPy
+* `PyPy <https://pypy.org/>`_
     * Fast version of Python written in RPython
         - statically-typed subset of CPython
-* Jython
+* `Jython <http://www.jython.org/>`_
     * Python that runs on a JVM
-* IronPython
+* `IronPython <http://ironpython.net/>`_
     * Python for .NET
-* Cython
+* `Cython <http://cython.org/>`_
     * Compiles Python code to C
     * Not to be confused with CPython
 * Several others
@@ -70,28 +76,32 @@ Interpreters & Compilers
 Versions
 ========
 
-* The current version is 3.5 (3.6 scheduled for December 2016)
+* The current version is 3.7 (3.8 scheduled for October 2019)
     * Python 3 is not backwards compatible with Python 2
-    * Compatible code can be written, easier with the six module
+    * Compatible code can be written, easier with the `six <https://pythonhosted.org/six/>`_ module
 
 * Python 2.7 was released in July 2010
     * Slated for retirement in 2020
     * Only receives bugfixes and backports to assist in transition to Python 3
-    * Most code is still Python 2, so we'll see it for a long time
+    * A lot of code is still Python 2, so we'll see it for a long time
+    * `Tauthon <https://github.com/naftaliharris/tauthon>`_ is a project to create an unofficial Python 2.8
 
-* Versions in Enterprise Linux
-    * EL5: 2.4.3
-    * EL6: 2.6.6
-        * Later versions available with `Software Collections <https://www.softwarecollections.org>`_
-    * EL7: 2.7.5
-        * Later versions available with `Software Collections <https://www.softwarecollections.org>`_
-        * Python 3.4 available in `EPEL <https://fedoraproject.org/wiki/EPEL>`_
+Versions in Enterprise Linux
+============================
 
+* EL6: 2.6.6
+    * Later versions available with `Software Collections <https://www.softwarecollections.org>`_
+    * Python 3.4 available in `EPEL <https://fedoraproject.org/wiki/EPEL>`_
+* EL7: 2.7.5
+    * Later versions available with `Software Collections <https://www.softwarecollections.org>`_
+    * Python 3.4 available in `EPEL <https://fedoraproject.org/wiki/EPEL>`_
+* EL8: 3.x
+    * RHEL 8 will be `Python 3 only <https://www.phoronix.com/scan.php?page=news_item&px=RHEL-8-No-Python-2>`_
 
 Coding Style
 ============
 
-* PEP 8 is the official style Guide
+* `PEP 8 <https://www.python.org/dev/peps/pep-0008/>`_ is the official style Guide
     * Covers naming, indentation, spacing, etc
     * Some areas are up for interpretation
     * The goal is consistency and readability, not strict adherence
@@ -103,11 +113,11 @@ Coding Style
     * Almost everything else in lowercase_with_underscores
 
 
-Tools
-=====
+Tools - Text Editors
+====================
 
-* Text editor or IDE
-    * vim
+* Console
+    * `vim <https://www.vim.org/>`_
         * Set tab to 4 space in .vimrc
 
             .. code-block:: text
@@ -115,25 +125,61 @@ Tools
                 set tabstop=4
                 set shiftwidth=4
                 set expandtab
-    * Gedit
-    * Sublime Text
-    * PyCharm
-    * Many others
+    * `Emacs <https://www.gnu.org/software/emacs/>`_
 
-Tools
-=====
+* GUI
+    * `GEdit <https://wiki.gnome.org/Apps/Gedit>`_
+    * `Atom <https://atom.io/>`_
+    * `Sublime Text <https://www.sublimetext.com/>`_
 
-* Checkers
-    * pylint
-        * Dynamic checker (Loads code)
-        * Looks for style and functional errors
-    * flake8
-        * Static style checker (limited error checking)
-* Debugger
-    * pdb
+Tools - IDEs
+============
+
+* `VSCode <https://code.visualstudio.com/>`_ with Python extension
+    - Written in Typescript
+    - By Microsoft (Open source)
+* `Spyder <https://www.spyder-ide.org/>`_
+    - Written in Python
+    - Targeted at the scientific community
+* `PyCharm <https://www.jetbrains.com/pycharm/>`_
+    - Written in Java
+    - Commercial and community versions
+* `IDLE <https://docs.python.org/library/idle.html>`_
+    - Written in Python
+    - Basic IDE include with Python
+
+
+Tools - Linters
+===============
+
+* `pylint <https://www.pylint.org/>`_
+    * Dynamic linter (Loads code)
+    * Looks for style and functional errors
+* `pyflakes <https://pypi.org/project/pyflakes/>`_
+    * Static style checker
+* `pycodestyle <https://pypi.org/project/pycodestyle/>`_
+    * Checks code for `PEP 8 <https://www.python.org/dev/peps/pep-0008/>`_ compliance
+* `pydocstyle <https://pypi.org/project/pydocstyle/>`_
+    * Checks docstrings for `PEP 257 <https://www.python.org/dev/peps/pep-0257/>`_ compliance
+* `mccabe <https://pypi.org/project/mccabe/>`_
+    * Checks code complexity
+* `flake8 <https://pypi.org/project/flake8/>`_
+    * Wrapper for pyflakes, pycodestyle, and mccabe
+
+Tools - Other
+=============
+
+* Debuggers
+    * `pdb <https://docs.python.org/library/pdb.html>`_
+        - Built in debugger
+    * Most IDEs have their own debuggers
 * Documentation
-    * Sphinx
+    * `Sphinx <http://www.sphinx-doc.org>`_
+        - Tool for creating documentation from reStructuredText
+        - Used (with `Hieroglyph <https://pypi.org/project/hieroglyph/>`_) to create these slides
+        - Easy API documentation with `autodoc`_
 
+.. _autodoc: http://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html
 
 Resources
 =========
@@ -204,7 +250,7 @@ Shebang
     * Uses first ``python`` in $PATH
 * ``#!/usr/bin/python``
     * Uses the system default ``python``
-* ``#!/usr/bin/python2.6``
+* ``#!/usr/bin/python3.6``
     * Uses a specific ``python``
 * All options are valid, just different
 
@@ -263,13 +309,17 @@ Print: Statement vs Function
     - No parentheses
 * In Python 3, :py:func:`print` is a function
     - Requires parentheses
-* To use the :py:func:`print` in Python 2.6 and 2.7, hop in a Delorean
+* To use the :py:func:`print` in Python 2, hop in a Delorean
 
         .. code-block:: pycon
 
             >>> from __future__ import print_function
             >>> print("Hello, world")
             Hello, world
+
+* Bonus Question:
+    - Why does ``print("Hello, world")`` produce the same output in Python 2 and 3?
+    - Hint: Try ``print(1, 2)``
 
 White Space
 ===========
@@ -428,16 +478,16 @@ Standard Library
 * A collection of packages and modules shipped with Python
 * Provides standard solutions for common problems
 * Provides standard interfaces for low level or OS-specific operations
-* Refer to the documentation to the `documentation <https://docs.python.org/library>`_ for a complete list
+* Refer to the `documentation <https://docs.python.org/library>`_ for a complete list
 * Highlights
-    * sys — System-specific parameters and functions
-    * os — Miscellaneous operating system interfaces
-    * glob — Unix style pathname pattern expansion
-    * shutil — High-level file operations
-    * re — Regular expression operations
-    * random — Generate pseudo-random numbers
-    * time — Time access and conversions (lower level)
-    * datetime — Basic date and time types (higher level)
+    * `sys <https://docs.python.org/library/sys.html>`_ — System-specific parameters and functions
+    * `os <https://docs.python.org/library/os.html>`_ — Miscellaneous operating system interfaces
+    * `glob <https://docs.python.org/library/glob.html>`_ — Unix style pathname pattern expansion
+    * `shutil <https://docs.python.org/library/shutil.html>`_ — High-level file operations
+    * `re <https://docs.python.org/library/re.html>`_ — Regular expression operations
+    * `random <https://docs.python.org/library/random.html>`_ — Generate pseudo-random numbers
+    * `time <https://docs.python.org/library/time.html>`_ — Time access and conversions (lower level)
+    * `datetime <https://docs.python.org/library/datetime.html>`_ — Basic date and time types (higher level)
 
 
 Online Help
