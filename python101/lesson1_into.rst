@@ -19,7 +19,6 @@ Why Python?
 ===========
 
 * Python is consistently ranked among the top programming languages
-    * Others are C, C++, C#, JavaScript, and Java
     * Currently `second on GitHub`_ (active projects) behind JavaScript
         * Overtook Java in 2017
     * Heavily used in data science and scientific computing
@@ -28,11 +27,15 @@ Why Python?
 * Simple
     * Or as complicated as you need
 * Integrates with C libraries
-    * C API, ctypes, Cython, etc
+    * `C API`_, `ctypes`_, `CFFI`_, `Cython`_, etc
 * In demand
     * 67% increase in Python jobs on `Indeed.com <http://www.indeed.com/jobs?q=python&l=>`_ between 2012 and 2016
 
 .. _second on GitHub: https://www.benfrederickson.com/ranking-programming-languages-by-github-users/
+.. _C API: https://docs.python.org/c-api/index.html
+.. _ctypes: https://docs.python.org/library/ctypes.html
+.. _CFFI: http://cffi.readthedocs.org/
+.. _Cython: http://cython.org/
 
 History
 =======
@@ -128,7 +131,7 @@ Tools - Text Editors
     * `Emacs <https://www.gnu.org/software/emacs/>`_
 
 * GUI
-    * `GEdit <https://wiki.gnome.org/Apps/Gedit>`_
+    * `gedit <https://wiki.gnome.org/Apps/Gedit>`_
     * `Atom <https://atom.io/>`_
     * `Sublime Text <https://www.sublimetext.com/>`_
 
@@ -172,7 +175,7 @@ Tools - Other
 * Debuggers
     * `pdb <https://docs.python.org/library/pdb.html>`_
         - Built in debugger
-    * Most IDEs have their own debuggers
+    * Most IDEs have graphical debuggers
 * Documentation
     * `Sphinx <http://www.sphinx-doc.org>`_
         - Tool for creating documentation from reStructuredText
