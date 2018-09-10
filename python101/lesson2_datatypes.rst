@@ -82,6 +82,9 @@ References
 Sequences
 =========
 
+.. spelling::
+    unicode
+
 * Sequences are ordered collections of values
 * Sequences include:
     * list (mutable)
@@ -467,7 +470,7 @@ Unicode
 
 * In Python 2, there are two types of strings: strings and Unicode strings
 * In Python 3, all strings are Unicode
-* To make a Unicode string in Python 2, used :py:func:`unicode` or prepend "u"
+* To make a Unicode string in Python 2, used :py:func:`unicode` or prepend **u** or **U**
 
     .. code-block:: pycon
 
@@ -500,6 +503,7 @@ Unicode
         #!/usr/bin/env python 
         # -*- coding: utf-8 -*-
 
+
 Bytes
 =====
 
@@ -523,6 +527,7 @@ Bytes
 
 * In Python 2.6 and 2.7, bytes is an alias to str
 
+
 String Types
 ============
 
@@ -545,6 +550,34 @@ Byte Arrays
         abcde
 
 * Byte arrays are useful when modifying larger chunks of binary data
+
+
+Raw Strings
+===========
+
+* Prepending an **r** (or **R**) to a string prevents interpretation of escape sequences
+* Useful with regular expressions
+
+    .. code-block:: pycon
+
+        >>> r"I\'m not interpreted\n"
+        "I\\'m not interpreted\\n"
+
+* To create raw unicode strings, prepend **ur**
+
+    .. code-block:: python
+
+        >>> ur"I\'m not interpreted\n"
+        u"I\\'m not interpreted\\n"
+
+* To create raw byte strings, prepend **br**
+
+    .. code-block:: python
+
+        >>> br'\x00\x10'
+        b'\\x00\\x10'
+        >>> int.from_bytes(br'\x00\x10', byteorder='big')
+        6663128632962593072
 
 
 String Operations
