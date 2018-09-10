@@ -176,12 +176,13 @@ Iteration - continue
 
     .. code-block:: pycon
 
-        >>> for num in [1, 2, 3]:
+        >>> for num in [1, 2, 3, 4]:
         ...     if num % 2:
         ...             continue
-        ...     print(2, "Even!")
+        ...     print(num, "Even!")
         ...
         2 Even!
+        4 Even!
 
 
 Iteration - break
@@ -207,7 +208,7 @@ Iteration - break
 Iteration - else
 ================
 
-* When a loop fails to iterate, else can be used to run fallback code
+* When a loop fails to iterate, ``else`` can be used to run fallback code
 * This happens when a list is empty
 
     .. code-block:: pycon
@@ -227,6 +228,7 @@ Iteration - range
 
 * The :py:func:`range` function can be used to iterate over integers
 * Format is range(start, stop[, step])
+    * Final integer is one less than stop
 
     .. code-block:: pycon
 
@@ -366,7 +368,7 @@ Catching Exceptions
 
 * Common use cases
     * Validation
-        * When errors are uncommon, it is faster to catch errors than check all data
+        * When errors are uncommon, it is faster to catch errors than to check all data
     * Calling an external function
         * Smoothly handle unexpected issues that may arise calling external code
     * External environments
@@ -435,13 +437,20 @@ Catching Exceptions - else
             except ZeroDivisionError:
                 print("Nope, still can't divided by zero")
             else:
-                print("Result is %f" % result)
+                print("Result is %d" % result)
+
+    .. code-block:: pycon
+
+        >>> divide(2, 1)
+        Result is 2
+        >>> divide(2, 0)
+        Nope, still can't divided by zero
 
 
 Catching Exceptions - finally
 =============================
 
-* A ``finally`` can be included to execute code under all conditions
+* A ``finally`` block can be included to execute code under all conditions
 * ``finally`` blocks are executed after all other code
 * If an unhandled exception occurs, the ``finally`` block will be executed before it is raised
 * Useful for closing files, releasing locks, or other cleanup tasks
@@ -520,7 +529,7 @@ Exceptions - Creating
 =====================
 
 * Here are simple examples for creating custom exceptions
-    * Class will be covered in another lesson
+    * Classes will be covered in another lesson
 
     .. code-block:: python
 

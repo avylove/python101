@@ -172,6 +172,9 @@ Tools - Linters
 Tools - Other
 =============
 
+.. spelling::
+    Eval
+
 * Debuggers
     * `pdb <https://docs.python.org/library/pdb.html>`_
         - Built in debugger

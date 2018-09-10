@@ -682,7 +682,7 @@ F-Strings
     * Most objects use a common language
         * See :py:class:`datetime.datetime` for an object with special formatting
 
-* Raw f strings can be created by prepending **fr**
+* Raw f strings can be created by prepending ``fr``
 
     .. code-block:: pycon
 

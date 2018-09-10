@@ -470,7 +470,7 @@ Unicode
 
 * In Python 2, there are two types of strings: strings and Unicode strings
 * In Python 3, all strings are Unicode
-* To make a Unicode string in Python 2, used :py:func:`unicode` or prepend **u** or **U**
+* To make a Unicode string in Python 2, used :py:func:`unicode` or prepend ``u`` or ``U``
 
     .. code-block:: pycon
 
@@ -555,7 +555,7 @@ Byte Arrays
 Raw Strings
 ===========
 
-* Prepending an **r** (or **R**) to a string prevents interpretation of escape sequences
+* Prepending an ``r`` (or ``R``) to a string prevents interpretation of escape sequences
 * Useful with regular expressions
 
     .. code-block:: pycon
@@ -563,14 +563,14 @@ Raw Strings
         >>> r"I\'m not interpreted\n"
         "I\\'m not interpreted\\n"
 
-* To create raw unicode strings, prepend **ur**
+* To create raw unicode strings, prepend ``ur``
 
     .. code-block:: python
 
         >>> ur"I\'m not interpreted\n"
         u"I\\'m not interpreted\\n"
 
-* To create raw byte strings, prepend **br**
+* To create raw byte strings, prepend ``br``
 
     .. code-block:: python
 
