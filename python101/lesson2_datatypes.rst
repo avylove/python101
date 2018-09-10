@@ -79,109 +79,17 @@ References
         [1, 2, 3, 4]
 
 
-Iterable Types
-==============
-* Iterable types allow their contents to be iterated over programmatically
-* Iterable types include an :py:meth:`~iterator.__iter__` method
-* Supports :ref:`in <in>` and :ref:`not in <not in>` statements
-
-    .. code-block:: pycon
-
-        >>> myList = [1, 2, 3]
-        >>> 1 in myList
-        True
-        >>> 4 in myList
-        False
-
-        >>> 4 not in myList
-        True
-        >>> 1 not in myList
-        False
-
-
-Iterable Types
-==============
-
-* Supports :ref:`for <for>` statements
-
-    .. code-block:: pycon
-
-        >>> ducks = ['Huey', 'Dewey', 'Louie']
-        >>> for duck in ducks:
-        ...     print(duck)
-        ... 
-        Huey
-        Dewey
-        Louie
-
-* Iterable types include:
-    * dict
-    * set
-    * frozenset
-    * All Sequences
-
-
-Iterable Operations
-===================
-
-* Length - Number of items in an iterable
-
-    .. code-block:: pycon
-
-        >>> len([1, 2, 3])
-        3
-
-* Minimum - Smallest value in a sequence
-
-    .. code-block:: pycon
-
-        >>> min([1, 2, 3])
-        1
-
-* Maximum - Largest value in a sequence
-
-    .. code-block:: pycon
-
-        >>> max([1, 2, 3])
-        3
-
-
-Iterable Operations
-===================
-
-* Sort - Create a new sorted list from the values in an iterable with :py:func:`sorted`
-    * Takes an optional key (sorting method)
-    * reversible with reverse keyword
-
-    .. code-block:: pycon
-
-        >>> sorted([1, 2, 3], reverse=True)
-        [3, 2, 1]
-
-
-* Sum - Add numbers in an iterable
-    * Takes an optional starting value
-
-    .. code-block:: pycon
-
-        >>> sum([1, 2, 3])
-        6
-
-        >>> sum([1, 2, 3], 2)
-        8
-
-
 Sequences
 =========
 
 * Sequences are ordered collections of values
 * Sequences include:
-    * list
+    * list (mutable)
     * tuple
     * str
     * unicode (Python 2 Only)
     * bytes
-    * bytearray
+    * bytearray (mutable)
 * Elements in a sequence can be accessed by index, starting with 0
 
     .. code-block:: pycon
@@ -210,8 +118,8 @@ Sequences Operations
         >>> "Hodor! " * 3
         'Hodor! Hodor! Hodor! '
 
-        >>> 3 * "Hodor! "
-        'Hodor! Hodor! Hodor! '
+        >>> 2 * [1, 2, 3]
+        [1, 2, 3, 1, 2, 3]
 
 
 Sequences Operations
@@ -361,6 +269,103 @@ Mutable Sequence Operations - Python 3
         >>> myList.clear()
         >>> myList
         []
+
+
+Iterable Types
+==============
+* Iterable types allow their contents to be iterated over programmatically
+* Iterable types include an :py:meth:`~iterator.__iter__` method
+* Iterable types include:
+    * dict (mutable)
+    * set (mutable)
+    * frozenset
+    * All Sequences
+
+Iterable Operations
+===================
+
+* :ref:`for <for>` statements
+
+    .. code-block:: pycon
+
+        >>> ducks = ['Huey', 'Dewey', 'Louie']
+        >>> for duck in ducks:
+        ...     print(duck)
+        ... 
+        Huey
+        Dewey
+        Louie
+
+
+
+Iterable Operations
+===================
+
+* :ref:`in <in>` and :ref:`not in <not in>` statements
+
+    .. code-block:: pycon
+
+        >>> myList = [1, 2, 3]
+        >>> 1 in myList
+        True
+        >>> 4 in myList
+        False
+
+        >>> 4 not in myList
+        True
+        >>> 1 not in myList
+        False
+
+
+Iterable Operations
+===================
+
+* Length - Number of items in an iterable
+
+    .. code-block:: pycon
+
+        >>> len([1, 2, 3])
+        3
+
+* Minimum - Smallest value in a sequence
+
+    .. code-block:: pycon
+
+        >>> min([1, 2, 3])
+        1
+
+* Maximum - Largest value in a sequence
+
+    .. code-block:: pycon
+
+        >>> max([1, 2, 3])
+        3
+
+
+Iterable Operations
+===================
+
+* Sort - Create a new sorted list from the values in an iterable with :py:func:`sorted`
+    * Takes an optional key (sorting method)
+    * reversible with reverse keyword
+
+    .. code-block:: pycon
+
+        >>> sorted([1, 2, 3], reverse=True)
+        [3, 2, 1]
+
+
+* Sum - Add numbers in an iterable
+    * Takes an optional starting value
+
+    .. code-block:: pycon
+
+        >>> sum([1, 2, 3])
+        6
+
+        >>> sum([1, 2, 3], 2)
+        8
+
 
 
 Data Types Summary
@@ -632,9 +637,10 @@ Non-decimal numbers
         >>> bin(100)
         '0b1100100'
         >>> oct(100)
-        '0144'
+        '0o144'
 
-* Note the prefix for octal numbers changed in Python 3 from "0" to "0o"
+* Note the prefix for octal numbers changed in Python 3 from "0" to "0o".
+  Always use "0o", even in Python 2, but you may see "0" sometimes.
 
 
 Numbers From Strings
@@ -656,8 +662,8 @@ Numbers From Strings
         >>> # For hex include base 16
         ... int("64", 16)
         100
-        >>> float("1.0")
-        1.0
+        >>> float("2")
+        2.0
         >>> complex("1j")
         1j
 
@@ -681,8 +687,8 @@ Sets
 
     .. code-block:: pycon
 
-        >>> {1, 2, 3}
-        set([1, 2, 3])
+        >>> {1, 2, 1}
+        set([1, 2])
 
 
 Set Operations
@@ -771,7 +777,7 @@ Dictionary Operations
 
     .. code-block:: pycon
 
-        >>> myDict.update({'hometown': 'Camelot', 'fancies': 'Guinevere'})
+        >>> myDict.update({'hometown': 'Camelot', 'fancies': 'Guinevere', 'color': 'navy'})
 
     * If a key already exists, it's value will be updated
 
@@ -789,13 +795,13 @@ Dictionary Operations
     .. code-block:: pycon
 
         >>> myDict.values()
-        ['blue', 'Holy Grail', 'Lancelot']
+        ['navy', 'Holy Grail', 'Lancelot']
 
 * List all key-value pairs
     .. code-block:: pycon
 
         >>> myDict.items()
-        [('color', 'blue'), ('quest', 'Holy Grail'), ('name', 'Lancelot')]
+        [('color', 'navy'), ('quest', 'Holy Grail'), ('name', 'Lancelot')]
 
 * The behavior of :py:meth:`~dict.keys`, :py:meth:`~dict.values`, and :py:meth:`~dict.items` is slightly different in Python 3
     * Instead of lists, a dictionary view object is returned
@@ -810,12 +816,14 @@ Dictionary Operations
 
     .. code-block:: pycon
 
-        >>> myDict.get('hometown', None)
-        None
-        >>> myDict.setdefault('hometown', 'Camelot')
-        'Camelot'
-        >>> myDict.get('hometown', None)
-        'Camelot'
+        >>> myDict['weapon']
+        KeyError: 'weapon'
+        >>> myDict.get('weapon', 'lance')
+        'lance'
+        >>> myDict.setdefault('weapon', 'sword')
+        'sword'
+        >>> myDict['weapon']
+        'sword'
 
 * Make a shallow copy
 
@@ -836,7 +844,7 @@ Dictionary Operations
     .. code-block:: pycon
 
         >>> myDict.pop('color')
-        'blue'
+        'navy'
         >>> 'color' in myDict
         False
 
@@ -856,6 +864,8 @@ NoneType
 * A common object for null definitions
 * Often used in place of an undefined value
 * When testing for None, use ``is`` and never ``==``
+    - Faster
+    - Behavior of "==" can be customized
 
     .. code-block:: pycon
 
