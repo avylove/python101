@@ -182,6 +182,12 @@ Tools - Other
         - Used (with `Hieroglyph <https://pypi.org/project/hieroglyph/>`_) to create these slides
         - Easy API documentation with `autodoc`_
 
+* Shells
+    * REPL (Read–Eval–Print Loop)
+        - Built-in console
+    * IPython
+        - Feature-rich console
+
 .. _autodoc: http://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html
 
 Resources
