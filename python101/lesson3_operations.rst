@@ -356,7 +356,7 @@ Objects as Strings
 
 * All Python objects can be represented as strings
 * The implementation varies across object types
-* There two formats for objects strings: representation and display
+* There are two formats for objects strings: representation and display
 * Representation string
     * Defined by the object's :py:meth:`~object.__repr__` method
     * Shown with the :py:func:`repr` function or in the Python console
@@ -523,7 +523,7 @@ str.format()
     * ``!a`` -- Convert using :py:func:`ascii` (Python 3 Only)
 
 * The format specification (formatSpec) is a mini-language
-    * Can object-specific
+    * Can be object-specific
     * Most objects use a common language
         * See :py:class:`datetime.datetime` for an object with special formatting
 
@@ -644,6 +644,53 @@ str.format() - Examples
         'ob-la-di, ob-la-da'
 
 
+F-Strings
+=========
+
+* Introduced in Python 3.6
+* Allow expressions to be embedded in strings
+* Faster than other formatting options
+
+* No backslashes in expressions (OK in string)
+* No comments in expressions
+* Curly braces are escaped with more curly braces
+
+    .. code-block:: pycon
+
+        >>> name = 'George'
+        >>> limit = 732
+        >>> f"Hi! My name is {name}. I can count to {max(10, limit)}"
+        'Hi! My name is George. I can count to 732'
+
+
+F-Strings
+=========
+
+.. spelling::
+    formatSpec
+
+.. image:: /_static/f_strings.svg
+   :align: center
+
+* Conversion - same as str.format()
+    * ``!s`` -- Convert using :py:func:`str`
+    * ``!r`` -- Convert using :py:func:`repr`
+    * ``!a`` -- Convert using :py:func:`ascii` (Python 3 Only)
+
+* The format specification (formatSpec) same as str.format()
+    * Can be object-specific
+    * Most objects use a common language
+        * See :py:class:`datetime.datetime` for an object with special formatting
+
+* Raw f strings can be created by prepending **fr**
+
+    .. code-block:: pycon
+
+        >>> interpreted = 'Nope'
+        >>> fr'I\'m not interpreted? {interpreted}'
+        "I\\'m not interpreted? Nope"
+
+
 Slicing Sequences
 =================
 
@@ -658,7 +705,7 @@ Slicing Sequences
         * step: 1 (increment index by 1)
     * Does not include the ``end`` value
     * ``:step`` is optional
-    * * A negative step causes the start to default to the last item
+    * A negative step causes the start to default to the last item
 
 
 Slicing Sequences - Basic
@@ -755,7 +802,7 @@ Deep Copying
     .. code-block:: pycon
 
         >>> import copy
-        >>> myDict = {'aList' : [1, 
+        >>> myDict = {'aList' : [1, 2]}
         >>> newDict = copy.deepcopy(myDict)
         >>> newDict['aList'].append(3)
         >>> myDict['aList']
