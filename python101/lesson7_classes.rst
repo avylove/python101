@@ -17,6 +17,7 @@ Classes - Empty
 
 * A basic class definition includes a name and parent(s)
     * :py:class:`object` is the standard base class
+        - Not required with Python 3
     * Class names should be written in CapWords format
 
     .. code-block:: python
@@ -33,7 +34,6 @@ Class Instances
 ===============
 
 * Instances are created from classes
-* Instances are also called objects
 
     .. code-block:: python
 
@@ -115,7 +115,7 @@ Methods
         class Car(object):
             """
             This is a simple class called Car
-            It has one class attribute, wheels
+            It has one class attribute and one method
             """
 
             wheels = 4
@@ -159,7 +159,7 @@ Class Initialization
 
 * A special method :py:meth:`__init__() <object.init>` is used to customize a class
 * Generally used for validation and to set instance attributes
-* Takes arguments, but should not return anything
+* Takes arguments, but can not return anything
 
     .. code-block:: python
 
@@ -270,7 +270,7 @@ Class Methods
 =============
 
 * Class methods operate on a class rather than an instance
-* The first argument is ``cls`` by convention
+* The first argument is the class object, ``cls`` by convention
 * Create a class method with the :py:func:`classmethod` decorator
 
     .. code-block:: python
@@ -466,6 +466,7 @@ Inheritance - super
 * Syntax: super(type[, object-or-type])
     * type is optional in Python 3
 * Provides a more flexible way to access parent
+    * Very important for multiple levels of inheritance
 
     .. code-block:: python
 
@@ -479,7 +480,7 @@ Inheritance - super
 Abstract Methods
 ================
 
-* An abstract method declared, but not implemented
+* An abstract method is declared, but not implemented
     * Intended to be defined in a subclass
 
     .. code-block:: python
@@ -535,7 +536,7 @@ Iterators
     * Iterators have an extra method :py:meth:`~iterator.__iter__` that returns itself
 * Iterators are generally not accessed directly
     * Provided by other objects to support iteration
-* Many functions that previously returned lists return objects with iterators in Python 3
+* Many functions that previously returned lists return iterators in Python 3
     * Makes the code more efficient (lazy processing)
     * Example: :py:meth:`dict.keys` behaves like ``dict.iterkeys()`` did in Python 2
     * To convert to a list, use :py:class:`list`
