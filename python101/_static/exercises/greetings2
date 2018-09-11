@@ -1,0 +1,57 @@
+#! /usr/bin/env python
+"""
+This file does not need to be modified
+
+Create a new python module called 'hello' which has a function 'greet'.
+Calling greet with a name will return a string similar to:
+
+Hi, NAME! STATEMENT
+
+Name should be properly capitalized
+
+Statements to output for specific users
+    Bob - How about that local sports team?
+    Sally - If you were a tree, what kind of tree would you be?
+    Terry - Do you know the way to San Jose?
+    Graham - I'll have the spam and eggs.
+    Jane - I'll have the green eggs and spam.
+    anyone else - What is the airspeed velocity of an unladen swallow?
+
+If hello is placed in the same directory as this file, running this file
+will ask for a name and print a greeting.
+
+Hint:
+    See the greetings assignment from Lesson 2
+"""
+
+
+from __future__ import print_function
+
+import sys
+
+import hello
+
+
+if sys.version_info[0] > 2:
+    INPUT = input
+else:
+    INPUT = raw_input
+
+def main():
+    """
+    Main function
+    """
+
+    while True:
+
+        # Get name
+        name = INPUT("What is your name? ")
+
+        # If no name is given, exit
+        if not name:
+            break
+
+        print(hello.greet(name))
+
+if __name__ == '__main__':
+    main()

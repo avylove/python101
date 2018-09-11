@@ -1,0 +1,23 @@
+"""
+SAVE THIS FILE AS hello.py IN THE SAME DIRECTORY AS THE MAIN SCRIPT
+Hello module
+"""
+
+STATEMENTS = {'bob' :  "How about that local sports team?",
+              'sally' : "If you were a tree, what kind of tree would you be?",
+              'terry' : "Do you know the way to San Jose?",
+              'graham' : "I'll have the spam and eggs.",
+              'jane' : "I'll have the green eggs and spam."}
+
+DEF_STATEMENT = "What is the airspeed velocity of an unladen swallow?"
+
+
+def greet(name):
+
+    # Determine which statement to use, statements are below
+    # This should work the same regardless of capitalization
+    statement = STATEMENTS.get(name.lower(), DEF_STATEMENT)
+
+    # Return greeting with name capitalized
+    return 'Hi, %s! %s' % (name.capitalize(), statement)
+
