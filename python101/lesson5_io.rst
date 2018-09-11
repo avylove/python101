@@ -29,14 +29,12 @@ Command Line Arguments
         arg2
         string with spaces
 
-* For a framework for command line options, see the :py:mod:`argparse` module
-
 
 Advanced Command Line Arguments
 ===============================
 
-* To write Python scripts which take more complicated options use the :py:mod:`argparse` module
-    * :py:mod:`argparse` supports short (-o) or long (--option) options
+* To write Python scripts which take more complicated options, use the :py:mod:`argparse` module
+    * :py:mod:`argparse` supports short (``-o``) or long (``--option``) options
     * Automatically generates help output
     * Checks for required arguments and mutually-exclusive arguments
     * Highly configurable
@@ -46,7 +44,7 @@ Advanced Command Line Arguments
         import argparse
         parser = argparse.ArgumentParser(description='Best program, ever!')
         parser.add_argument('-n', '--number', metavar='NUMBER', type=int,
-                            required=True, help='Number of time to shout')
+                            required=True, help='Number of times to shout')
 
         options = parser.parse_args()
         print('Shout! ' * options.number)
@@ -114,7 +112,7 @@ File I/O
         * ``b`` -- binary mode - read and write as bytes
         * ``t`` -- text mode - read and write as strings (default)
         * ``+`` -- read and write
-    * Modes are combined, for example ``r+b`` would open a a file in binary mode without truncation
+    * Modes are combined, for example ``a+b`` would open a file in binary mode without truncation
     * returns a :term:`file object`
 
 
