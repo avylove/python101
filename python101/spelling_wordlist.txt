@@ -14,7 +14,7 @@ iterable
 iterables
 Jython
 linter
-Linters
+linters
 lookups
 namespace
 prepend

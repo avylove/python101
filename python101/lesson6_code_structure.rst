@@ -115,14 +115,14 @@ Functions - Keywords
         >>> def scores(game, **kwargs):
         ...     print(game.capitalize() + ' scores:')
         ...     for key, value in kwargs.items():
-        ...             print(key + ' : ' + str(value))
+        ...             print('  %s : %d' % (key,value))
         ...
         >>> scores('jumprope', John=20, George=19, Paul=12, Ringo=126)
         Jumprope scores:
-        Ringo : 126
-        Paul : 12
-        John : 20
-        George : 19
+          Ringo : 126
+          Paul : 12
+          John : 20
+          George : 19
 
 
 Functions - Scope
@@ -215,6 +215,7 @@ Map
         >>> input = [1, 2, 3, 4, 5, 6]
         >>> map(lambda x: x ** 2, input)
         [1, 4, 9, 16, 25, 36]
+        # Same as [x ** 2 for x in input]
 
     .. code-block:: pycon
 
@@ -222,6 +223,7 @@ Map
         >>> input2 = [2, 4, 6, 8, 10, 12]
         >>> map(lambda x, y: x * y, input1, input2)
         [2, 8, 18, 32, 50, 72]
+        # Same as [x * y for x, y in zip(input1, input2)]
 
 
 Pass Statement
@@ -252,6 +254,15 @@ Checking Datatypes
 
         >>> if isinstance(var1, (list, tuple)):  # Test if var1 is a list or a tuple
         ...     print("I see you enjoy a good sequence.")
+
+* To check against datatype categories use the :py:mod:`collections.abc` module.
+    - :py:mod:`collections` before Python 3.3
+
+    .. code-block:: pycon
+
+        >>> from collections.abc import Sequence
+        >>> isinstance([1, 2], Sequence)
+        True
 
 
 Decorators
@@ -333,11 +344,11 @@ Generators
     .. code-block:: python
 
         def range2(start, end):
-
             current = start
             while current < end:
                 yield current
                 current += 1
+
 
 Generators
 ==========
@@ -353,7 +364,8 @@ Generators
         1
         >>> numbers.next()
         2
-        >>> list(numbers)
+        >>> # StopIteration is caught internally
+        ... list(numbers)
         [3, 4, 5, 6, 7, 8, 9]
         >>> numbers.next()
         Traceback (most recent call last):
@@ -365,7 +377,7 @@ Dunder Main
 ===========
 * All Python files are modules
     * Any code not in a function or class is executed at import
-* All (most) code in a module should be contained within functions or classes
+* Most code in a module should be contained within functions or classes
 * Modules executed directly should use a dunder main test
 
     .. code-block:: python
@@ -390,7 +402,7 @@ Modules - Creating
 ==================
 
 * For a module that will never be executed directly
-    * Do **not** include a shebang
+    * Do **NOT** include a shebang
     * Ensure it is not executable
     * Ensure all code is contained in functions or classes
     * Create docstrings
@@ -468,7 +480,7 @@ Private Objects
 * Sometimes an object (variable, function, class, etc) is not intended for general use
 * Private object names should begin with a single underscore
 * Private objects are not imported with '*'
-* Some code checkers will warn about using private objects
+* Some linters will warn about using private objects
 
     .. code-block:: python
 
