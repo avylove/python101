@@ -1,0 +1,36 @@
+"""
+Create a class called 'Turtle'
+
+Turtle must include the following:
+    Two instance variables 'x' and 'y'
+        Both default to 0, but can be specified at initialization
+    Four methods
+        move_up: increments y by number given
+        move_up: decrements y by number given
+        move_right: increments x by number given
+        move_left: decrements x by number given
+    One property
+        position: returns x, y
+"""
+
+# Turtle class goes here
+
+if __name__ == '__main__':
+
+    donatello = Turtle()
+
+    donatello.move_left(2)
+    donatello.move_up(6)
+    donatello.move_right(1)
+    donatello.move_down(4)
+    print(donatello.position)
+    # (-1, 2)
+
+    leonardo = Turtle(5,4)
+
+    leonardo.move_right(10)
+    leonardo.move_up(4)
+    leonardo.move_left(3)
+    leonardo.move_down(2)
+    print(leonardo.position)
+    # (12, 6)
