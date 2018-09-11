@@ -338,8 +338,7 @@ Generators
 * Generators support single use iteration
 * Generators process an iteration only when an element is requested (lazy)
 * The :py:keyword:`yield` statement returns a value and pauses processing
-    * Processing resumes when ``__next__()`` is called
-        * ``next()`` in Python 2
+    * Processing resumes when ``next()`` is called
 
     .. code-block:: python
 
@@ -360,17 +359,54 @@ Generators
         >>> numbers = range2(1, 10)
         >>> type(numbers)
         <type 'generator'>
-        >>> numbers.next()
+        >>> next(numbers)
         1
-        >>> numbers.next()
+        >>> next(numbers)
         2
         >>> # StopIteration is caught internally
         ... list(numbers)
         [3, 4, 5, 6, 7, 8, 9]
-        >>> numbers.next()
+        >>> next(numbers)
         Traceback (most recent call last):
           File "<stdin>", line 1, in <module>
         StopIteration
+
+
+Coroutines
+==========
+
+* Special type of generator that consumes on ``yield``
+* Allows multiple entry points to a function
+* Allows a function to be setup once and called several times
+* Often used with dataflows and threading
+* Must be primed with ``next()`` before using
+
+    .. code-block:: python
+
+        import re
+
+        def grep(pattern):
+            re_pattern = re.compile(pattern)
+            while True:
+                line = yield
+                if re_pattern.search(line):
+                    print(line)
+
+
+Coroutines
+==========
+
+* Coroutines will continue until they fall out of scope or hit a ``return`` statement
+
+    .. code-block:: pycon
+
+        >>> grep_coroutine = grep('sun')
+        >>> next(grep_coroutine)  # Prime the coroutine
+        >>> grep_coroutine.send('sunny')
+        sunny
+        >>> grep_coroutine.send('cloudy')
+        >>> grep_coroutine.send('asunder')
+        asunder
 
 
 Dunder Main
